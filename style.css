@@ -44,6 +44,11 @@ h1 {
   transform: rotateY( 180deg );
 }
 
+#card0 {
+  float: left;
+  margin: 10px 10px;
+}
+
 #card1 {
   float: left;
   margin: 10px 10px;
@@ -55,11 +60,6 @@ h1 {
 }
 
 #card3 {
-  float: left;
-  margin: 10px 10px;
-}
-
-#card4 {
   float: left;
   margin: 10px 10px;
 }
