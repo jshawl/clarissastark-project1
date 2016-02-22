@@ -1,8 +1,8 @@
 var allCards = document.querySelectorAll(".card");
 
-// This tells indiviudual cards by class ID to flip
+// This tells indiviudual cards by class ID to flip. Figure out if simplifying possible**
 
-$("#card0, #card1, #card2, #card3").click(flip);
+$("#card0, #card1, #card2, #card3, #card4, #card5, #card6, #card7, #card8, #card9, #card10, #card11").click(flip);
 
 function flip() {
   $(this).toggleClass('flipped');
