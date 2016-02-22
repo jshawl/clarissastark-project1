@@ -9,7 +9,7 @@ h1 {
 }
 
 .grid {
-  width: 100%;
+  width: inherit;
   height: 100%;
   position: relative;
   perspective: 800px;
@@ -20,6 +20,8 @@ h1 {
   height: 100px;
   transform-style: preserve-3d;
   transition: transform 1s;
+  float: left;
+  margin: 10px 10px;
 }
 
 .card .face {
@@ -44,32 +46,14 @@ h1 {
   transform: rotateY( 180deg );
 }
 
-#card0 {
-  float: left;
-  margin: 10px 10px;
-}
-
-#card1 {
-  float: left;
-  margin: 10px 10px;
-}
-
-#card2 {
-  float: left;
-  margin: 10px 10px;
-}
-
-#card3 {
-  float: left;
-  margin: 10px 10px;
-}
-
 table {
   border: 0 0;
   width: 50%;
   margin-right: auto;
   margin-left: auto;
 }
+
+
 
 /*.grid .card.flipped {
 -webkit-transform: rotatex(-180deg);

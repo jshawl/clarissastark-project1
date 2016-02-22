@@ -1,36 +1,28 @@
 var allCards = document.querySelectorAll(".card");
 
-// function randomizeDeck() {
-//   var cardBack = '0123'.split("");
-//   var color = '#';
-//   for (var c = 0; c < allCards.length; c++){
-//     color += cardBack[Math.round(Math.random() * 4)];
-//   }
-//   return color;
-// }
-//
-// $(".card").each(function() {
-//     $(this).css("background-color", randomizeDeck());
-// });
-
-// function flipIfClicked() {
-//   if ($(this).hasClass('clickedTag')){
-//     $('.card').toggleClass('flipped');
-//   }else{
-//     alert("Please click on a card.");
-//   }
-// }
+// This tells indiviudual cards by class ID to flip
 
 $("#card0, #card1, #card2, #card3").click(flip);
-
-// $(".card").click(function(){
-//   (this).attr('class').toggleClass('flipped');
-// }
-// );
 
 function flip() {
   $(this).toggleClass('flipped');
 }
+
+// This randomizes the colors on the back of the cards in the grid
+
+function randomizeDeck() {
+  var cardBack = '0123'.split("");
+  var color = '#';
+  for (var c = 0; c < allCards.length; c++){
+    color += cardBack[Math.round(Math.random() * 4)];
+  }
+  return color;
+}
+
+$(".card").each(function() {
+    $(this).css("background-color", randomizeDeck());
+});
+
 
 
 // $('#card1').toggle(
