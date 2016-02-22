@@ -1,0 +1,49 @@
+body {
+  background-color: black;
+  color: white;
+  font-family: 'Helvetica', sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+.grid {
+  overflow: hidden;
+  width: 100%;
+}
+
+.card {
+  width: 100%;
+  float: right;
+  width: 100px;
+  height: 100px;
+  background: cyan;
+}
+
+#card1 {
+  float: left;
+  margin: 10px 10px;
+}
+
+#card2 {
+  float: left;
+  margin: 10px 10px;
+}
+
+#card3 {
+  float: left;
+  margin: 10px 10px;
+}
+
+#card4 {
+  float: left;
+  margin: 10px 10px;
+}
+
+table {
+  border: 0 0;
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
+}
