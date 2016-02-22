@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -7,11 +7,23 @@
 </head>
 <body>
   <h1>Forget Me Not</h1>
-    <div class="grid">
-      <div class="card" id="card1"></div>
-      <div class="card" id="card2"></div>
-      <div class="card" id="card3"></div>
-      <div class="card" id="card4"></div>
+  <div class="grid">
+    <div class="card" id="card1" onclick="flip()">
+      <div class="face front">Front</div>
+      <div class="face back">Back</div>
+    </div>
+    <div class="card" id="card2" onclick="flip()">
+      <div class="face front">Front</div>
+      <div class="face back">Back</div>
+    </div>
+    <div class="card" id="card3" onclick="flip()">
+      <div class="face front">Front</div>
+      <div class="face back">Back</div>
+    </div>
+    <div class="card" id="card4" onclick="flip()">
+      <div class="face front">Front</div>
+      <div class="face back">Back</div>
+    </div>
       <!-- <table>
           <tr>
             <td id="card1">One</td>
@@ -38,6 +50,7 @@
             <td>Twelve</td>
           </tr>
         </table> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

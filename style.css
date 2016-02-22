@@ -9,16 +9,39 @@ h1 {
 }
 
 .grid {
-  overflow: hidden;
   width: 100%;
+  height: 100%;
+  position: relative;
+  perspective: 800px;
 }
 
 .card {
-  width: 100%;
-  float: right;
   width: 100px;
   height: 100px;
-  background: cyan;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+.card .face {
+  margin: 0;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.card .front {
+  background: red;
+}
+
+.card .back {
+  background: blue;
+  transform: rotateY( 180deg );
+}
+
+.card.flipped {
+  transform: rotateY( 180deg );
 }
 
 #card1 {
@@ -47,3 +70,35 @@ table {
   margin-right: auto;
   margin-left: auto;
 }
+
+/*.grid .card.flipped {
+-webkit-transform: rotatex(-180deg);
+}
+
+.grid .card .face {
+width: 100%;
+height: 100%;
+position: absolute;
+-webkit-backface-visibility: hidden ;
+z-index: 2;
+font-family: Georgia;
+font-size: 1em;
+text-align: center;
+line-height: 100px;
+}
+
+.grid .card .front {
+position: absolute;
+z-index: 1;
+background: purple;
+color: white;
+cursor: pointer;
+}
+
+.grid .card .back {
+-webkit-transform: rotatex(-180deg);
+background: blue;
+background: white;
+color: teal;
+cursor: pointer;
+}*/
