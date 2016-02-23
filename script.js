@@ -1,29 +1,131 @@
-var allCards = document.querySelectorAll(".card");
+// var cardArray = document.querySelectorAll(".card");
+var num = (Math.floor(Math.random()*4));
+var colors = ["red", "blue", "orange", "green", "purple", "yellow", "red", "blue", "orange", "green", "purple", "yellow"];
+var flippedTiles = 0;
+var memoryValues = [];
+var memoryTileIds = [];
 
-// This tells indiviudual cards by class ID to flip. Figure out if simplifying possible**
+// This sets up a new board
 
-$("#card0, #card1, #card2, #card3, #card4, #card5, #card6, #card7, #card8, #card9, #card10, #card11").click(flip);
-
-function flip() {
-  $(this).toggleClass('flipped');
+function newBoard(){
+  flippedTiles = 0;
+  for (var i = 0; i < colors.length; i++){
+    var tile = document.createElement("div");
+    tile.id = "tile_" + i;
+    tile.setAttribute("data-color", colors[i]);
+    tile.addEventListener("click", function(){
+      memoryFlipTile(this);
+    });
+    document.getElementById("grid").appendChild(tile);
+  }
 }
+
+
+// This flips over two cards and determines if they're a match, and either flips them back over or leaves matched cards face up
+
+function memoryFlipTile(tile){
+  var val = tile.getAttribute("data-color");
+  tile.style.backgroundColor = val;
+  if(tile.innerHTML == "" && memoryValues.length < 2){
+    if(memoryValues.length == 0 || memoryValues.length == 1){
+      memoryValues.push(val);
+      memoryTileIds.push(tile.id);
+    }else if (isAndIsMatch(memoryValues[0],memoryValues[1])){
+      flippedTiles += 2;
+      memoryValues = [];
+      memoryTileIds = [];
+      if(flippedTiles == colors.length){
+        alert("You've won! Starting new game now.");
+        document.getElementById("grid").innerHTML = "";
+        newBoard();
+      }
+    }
+  }else{
+    function flipBack(){
+      var tile1 = document.getElementById('memory');
+    }
+  }
+}
+
+function isAndIsMatch(a,b){
+  return !!a && !!b && a === b;
+}
+
+// This shuffles the deck
+
+// Array.prototype.shuffleDeck = function(){
+//   var i = this.length, j, temp;
+//   while(--i > 0){
+//     temp = this[j];
+//     this[j] = this[i];
+//     this[i] = temp;
+//   }
+// };
 
 // This randomizes the colors on the back of the cards in the grid
 
-function randomizeDeck() {
-  var cardBack = '0123'.split("");
-  var color = '#';
-  for (var c = 0; c < allCards.length; c++){
-    color += cardBack[Math.round(Math.random() * 4)];
-  }
-  return color;
-}
+// $('document').ready(function(){
+//   var colors = ["red", "blue", "orange", "green", "purple", "yellow"];
+//   $('.card').each(function() {
+//     var rand = Math.floor(Math.random()*colors.length);
+//     $(this).css("background-color", colors[rand]);
+//   });
+// });
 
-$(".card").each(function() {
-    $(this).css("background-color", randomizeDeck());
-});
+// $("#card0, #card1, #card2, #card3, #card4, #card5, #card6, #card7, #card8, #card9, #card10, #card11").click(flip);
+//
+// function flip() {
+//   $(this).toggleClass('flipped');
+// }
 
 
+
+// This randomizes the colors on the back of the cards in the grid
+
+// colors.sort(function() { return 0.5 - Math.random();});
+
+
+//5th attempt
+// var r = Math.floor(Math.random() * colors.length);
+// document.getElementsByClassName("card").setAttribute("background", colors[r]);
+
+//4th attempt
+
+// $("#card0").css("background-image", "url(" + Math.floor(Math.random()*6) + ".gif)");
+
+// $("#card1").css("background-image", "url(" + Math.floor(Math.random()*6) + ".gif)");
+
+// $("#card2").css("background-image", "url(" + Math.floor(Math.random()*6) + ".gif)");
+
+// $("#card3").css("background-image", "url(" + Math.floor(Math.random()*6) + ".gif)");
+
+
+// 2nd attempt
+// $(document).ready(function() {
+//   $('.main').each(function(){
+//     var hue =
+//     $(this).css("backgroundColor", hue);
+//   });
+// });
+
+// 1st attempt
+// function randomizeDeck() {
+//   var cardBack = '0123'.split("");
+//   var color = '#';
+//   for (var c = 0; c < allCards.length; c++){
+//     color += cardBack[Math.round(Math.random() * 4)];
+//   }
+//   return color;
+// }
+//
+// $(".card").each(function() {
+//     $(this).css("background-color", randomizeDeck());
+// });
+//
+// randomizeDeck();
+
+
+// 3rd attempt
 
 // $('#card1').toggle(
 //     function() {
@@ -63,8 +165,6 @@ $(".card").each(function() {
 //      return false;
 //  });
 
-
-
 /* pseudocoding
 
 +Think about not having too many global variables
@@ -75,7 +175,7 @@ randomly assign colors to cells
 click event on cell reveals the color
 
 scoreing
-if click event on cell value = click event on second cell value, score increases by one
+if click event on cell value = click event on second cell value, var score increases by one
 
 
 */
