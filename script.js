@@ -20,31 +20,31 @@ function newBoard(){
   }
 }
 
-
-// This flips over two cards and determines if they're a match, and either flips them back over or leaves matched cards face up
+// This flips over cards and determines if two cards are a match, and either flips them back over or leaves matched cards face up
 
 function memoryFlipTile(tile){
   var val = tile.getAttribute("data-color");
   tile.style.backgroundColor = val;
-  if(tile.innerHTML == "" && memoryValues.length < 2){
-    if(memoryValues.length == 0 || memoryValues.length == 1){
-      memoryValues.push(val);
-      memoryTileIds.push(tile.id);
-    }else if (isAndIsMatch(memoryValues[0],memoryValues[1])){
+  memoryValues.push(val);
+  memoryTileIds.push(tile.id);
+  if (memoryValues.length == 2){
+    if (isAndIsMatch(memoryValues[0],memoryValues[1]) === false){
+      this.setTimeout(flipBack, 500);
+    }else if (isAndIsMatch(memoryValues[0],memoryValues[1]) === true){
       flippedTiles += 2;
       memoryValues = [];
       memoryTileIds = [];
-      if(flippedTiles == colors.length){
-        alert("You've won! Starting new game now.");
-        document.getElementById("grid").innerHTML = "";
-        newBoard();
-      }
-    }
-  }else{
-    function flipBack(){
-      var tile1 = document.getElementById('memory');
     }
   }
+}
+
+function flipBack(){
+  var tile1 = document.getElementById(memoryTileIds[0]);
+  var tile2 = document.getElementById(memoryTileIds[1]);
+  tile1.style.backgroundColor = "cyan";
+  tile2.style.backgroundColor = "cyan";
+  memoryValues = [];
+  memoryTileIds = [];
 }
 
 function isAndIsMatch(a,b){
