@@ -1,5 +1,8 @@
 body {
-  background: #fff url("flagbggradient.jpg") no-repeat fixed center;
+  border-top: 20px solid #247bbe;
+  margin-top: -2px;
+  width: 100%;
+  background: #fff url("flagbggradient.jpg") no-repeat fixed top;
   color: rgb(80, 80, 80);
   font-family: 'Helvetica', sans-serif;
   width: 100%;
@@ -35,6 +38,7 @@ button.deckBtn {
   margin-bottom: 20px
   text-align: center;
   margin-bottom: 20px;
+  font-weight: bold;
 }
 
 div#grid{
