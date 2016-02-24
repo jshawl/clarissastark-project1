@@ -1,35 +1,40 @@
 body {
-  background-color: #fff;
-  color: #999;
+  background: #fff url("flagbggradient.jpg") no-repeat fixed center;
+  color: rgb(80, 80, 80);
   font-family: 'Helvetica', sans-serif;
-  position: fixed;
-  border-top: 10px solid rgb(80, 80, 80);
   width: 100%;
-  height: 1em;
 }
 
 h1 {
   text-align: center;
 }
 
-h2 {
+p {
   text-align: center;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: bold;
   color: rgb(80, 80, 80);
 }
 
+
+div#instructions {
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 button.deckBtn {
-  background-color: rgb(130, 92, 237);
+  background-color: rgb(194, 0, 0);
   border-radius: 3px;
   border: none;
   text-decoration: none;
   text-transform: uppercase;
   font-size: 13px;
   color: white;
-  padding: 10px 10px;
-  margin: 10px 10px;
+  padding: 10px 30px;
+  margin-bottom: 20px
   text-align: center;
-  width: 30%;
+  margin-bottom: 20px;
 }
 
 div#grid{
@@ -39,7 +44,7 @@ div#grid{
 }
 
 div#grid > div{
-	background: teal; 
+	background: #247bbe;
 	border:#bbb 1px solid;
 	width:70px;
 	height:70px;
@@ -60,15 +65,14 @@ div#grid > div:hover{
 }
 
 button:hover{
-  color: #ccccff;
+  color: #fff;
   background-color: rgb(20, 20, 20);
 }
 
 div#decks {
-  width: 700px;
+  width: 150px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 10px;
 }
 
 footer {
@@ -163,6 +167,6 @@ cursor: pointer;
 -webkit-transform: rotatex(-180deg);
 background: blue;
 background: white;
-color: teal;
+color: #247bbe;
 cursor: pointer;
 }*/

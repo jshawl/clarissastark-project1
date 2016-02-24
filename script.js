@@ -1,11 +1,15 @@
 // var cardArray = document.querySelectorAll(".card");
-var num = (Math.floor(Math.random()*4));
-var bernies = [];
 var colors = ["red", "blue", "orange", "green", "purple", "yellow", "red", "blue", "orange", "green", "purple", "yellow"];
 var matchedTiles = 0;
 var memoryValues = [];
 var memoryTileIds = [];
 var numTries = 0;
+var deck = document.querySelector("#bern");
+
+
+// deck.addEventListener("click", function(){
+//   this.setAttribute("data-")
+// })
 
 // This sets up the board
 
@@ -31,6 +35,7 @@ function memoryFlipTile(tile){
   memoryValues.push(val);
   memoryTileIds.push(tile.id);
   numTries += 0.5;
+  this.is
   if (memoryValues.length == 2){
     if (isAndIsMatch(memoryValues[0],memoryValues[1]) === false){
       this.setTimeout(flipBack, 700);
@@ -65,13 +70,13 @@ if (foundAllMatches) {
 function flipBack(){
   var tile1 = document.getElementById(memoryTileIds[0]);
   var tile2 = document.getElementById(memoryTileIds[1]);
-  tile1.style.backgroundColor = "teal";
-  tile2.style.backgroundColor = "teal";
+  tile1.style.backgroundColor = "#247bbe";
+  tile2.style.backgroundColor = "#247bbe";
   memoryValues = [];
   memoryTileIds = [];
 }
 
-// This deteremines if two items are a match, excluding 'undefined' "" & null
+// This deteremines if two items are a match, excluding 'undefined', "" & null
 
 function isAndIsMatch(a,b){
   return !!a && !!b && a === b;
@@ -83,18 +88,7 @@ function startImage(){
     document.getElementById("pic").src = imgArray[0].src;
 }
 
-
-// This shuffles the deck
-
-// function shuffleArray(array) {
-//     for (var i = this.length - 1; i > 0; i--) {
-//         var j = Math.floor(Math.random() * (i + 1));
-//         var temp = array[i];
-//         array[i] = array[j];
-//         array[j] = temp;
-//     }
-//     return array;
-// }
+// This randomizes the colors on the back of the cards in the grid
 
 Array.prototype.shuffleDeck = function(){
   for (var i = this.length - 1; i > 0; i--) {
@@ -104,16 +98,6 @@ Array.prototype.shuffleDeck = function(){
     this[j] = temp;
   }
 };
-//   Array.prototype.shuffleDeck = function(){
-//   var i = this.length, j, temp;
-//   while(--i > 0){
-//     temp = this[j];
-//     this[j] = this[i];
-//     this[i] = temp;
-//   }
-// };
-
-// This randomizes the colors on the back of the cards in the grid
 
 // $('document').ready(function(){
 //   var colors = ["red", "blue", "orange", "green", "purple", "yellow"];
