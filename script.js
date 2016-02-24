@@ -4,7 +4,8 @@ var matchedTiles = 0;
 var memoryValues = [];
 var memoryTileIds = [];
 var numTries = 0;
-var deck = document.querySelector("#bern");
+var startBtn = document.querySelector("#start");
+
 
 
 // deck.addEventListener("click", function(){
@@ -14,6 +15,10 @@ var deck = document.querySelector("#bern");
 // This sets up the board
 
 function newBoard(){
+  var parentDiv = document.getElementById("grid");
+  while (parentDiv.firstChild){
+    parentDiv.removeChild(parentDiv.firstChild);
+  }
   matchedTiles = 0;
   colors.shuffleDeck();
   for (var i = 0; i < colors.length; i++){
@@ -35,7 +40,6 @@ function memoryFlipTile(tile){
   memoryValues.push(val);
   memoryTileIds.push(tile.id);
   numTries += 0.5;
-  this.is
   if (memoryValues.length == 2){
     if (isAndIsMatch(memoryValues[0],memoryValues[1]) === false){
       this.setTimeout(flipBack, 700);
@@ -43,18 +47,21 @@ function memoryFlipTile(tile){
       matchedTiles += 2;
       memoryValues = [];
       memoryTileIds = [];
+      if (matchedTiles === colors.length){
+        alert("You've won! Starting new game now.");
+        newBoard();
+      }else if(numTries > 15){
+        alert("You're out of tries!");
+      }
     }
   }
 }
 
-// This ends the game when all matches are found, or when the player has maxxed out the number of tries.
 
-if (matchedTiles === colors.length){
-  alert("You've won! Starting new game now.");
-  newBoard();
-}else if(matchedTiles !== colors.length && numTries > 15){
-  alert("You're out of tries!");
-}
+
+// This ends the game when all matches are found, or when the player has maxxed out the number of tries.
+console.log(matchedTiles);
+
 /*var foundAllMatches = true;
 
 for (var i = 0; i <= matchedTiles.lenth; i++){
@@ -79,8 +86,9 @@ function flipBack(){
 // This deteremines if two items are a match, excluding 'undefined', "" & null
 
 function isAndIsMatch(a,b){
-  return !!a && !!b && a === b;
-}
+    return !!a && !!b && a === b;
+    }
+
 
 // This puts images into the card deck array
 
@@ -98,6 +106,9 @@ Array.prototype.shuffleDeck = function(){
     this[j] = temp;
   }
 };
+
+
+window.onload = newBoard;
 
 // $('document').ready(function(){
 //   var colors = ["red", "blue", "orange", "green", "purple", "yellow"];
