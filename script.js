@@ -1,7 +1,7 @@
 // var cardArray = document.querySelectorAll(".card");
 var num = (Math.floor(Math.random()*4));
 var colors = ["red", "blue", "orange", "green", "purple", "yellow", "red", "blue", "orange", "green", "purple", "yellow"];
-var flippedTiles = 0;
+var matchedTiles = 0;
 var memoryValues = [];
 var memoryTileIds = [];
 
@@ -29,27 +29,41 @@ function memoryFlipTile(tile){
   memoryTileIds.push(tile.id);
   if (memoryValues.length == 2){
     if (isAndIsMatch(memoryValues[0],memoryValues[1]) === false){
-      this.setTimeout(flipBack, 500);
+      this.setTimeout(flipBack, 700);
     }else if (isAndIsMatch(memoryValues[0],memoryValues[1]) === true){
-      flippedTiles += 2;
+      matchedTiles += 2;
       memoryValues = [];
       memoryTileIds = [];
     }
+  }else if (matchedTiles === colors.length){
+    alert("You've won! Starting new game now.");
+    newBoard();
   }
 }
+
+// This flips unmatched cards back over
 
 function flipBack(){
   var tile1 = document.getElementById(memoryTileIds[0]);
   var tile2 = document.getElementById(memoryTileIds[1]);
-  tile1.style.backgroundColor = "cyan";
-  tile2.style.backgroundColor = "cyan";
+  tile1.style.backgroundColor = "teal";
+  tile2.style.backgroundColor = "teal";
   memoryValues = [];
   memoryTileIds = [];
 }
 
+// This deteremines if two items are a match, excluding 'undefined' "" & null
+
 function isAndIsMatch(a,b){
   return !!a && !!b && a === b;
 }
+
+// This puts images into the card deck array
+
+function startImage(){
+    document.getElementById("pic").src = imgArray[0].src;
+}
+
 
 // This shuffles the deck
 
@@ -77,7 +91,6 @@ function isAndIsMatch(a,b){
 // function flip() {
 //   $(this).toggleClass('flipped');
 // }
-
 
 
 // This randomizes the colors on the back of the cards in the grid
