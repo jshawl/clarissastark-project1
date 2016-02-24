@@ -1,14 +1,17 @@
 // var cardArray = document.querySelectorAll(".card");
 var num = (Math.floor(Math.random()*4));
+var bernies = [];
 var colors = ["red", "blue", "orange", "green", "purple", "yellow", "red", "blue", "orange", "green", "purple", "yellow"];
 var matchedTiles = 0;
 var memoryValues = [];
 var memoryTileIds = [];
+var numTries = 0;
 
-// This sets up a new board
+// This sets up the board
 
 function newBoard(){
-  flippedTiles = 0;
+  matchedTiles = 0;
+  colors.shuffleDeck();
   for (var i = 0; i < colors.length; i++){
     var tile = document.createElement("div");
     tile.id = "tile_" + i;
@@ -27,6 +30,7 @@ function memoryFlipTile(tile){
   tile.style.backgroundColor = val;
   memoryValues.push(val);
   memoryTileIds.push(tile.id);
+  numTries += 0.5;
   if (memoryValues.length == 2){
     if (isAndIsMatch(memoryValues[0],memoryValues[1]) === false){
       this.setTimeout(flipBack, 700);
@@ -35,11 +39,26 @@ function memoryFlipTile(tile){
       memoryValues = [];
       memoryTileIds = [];
     }
-  }else if (matchedTiles === colors.length){
-    alert("You've won! Starting new game now.");
-    newBoard();
   }
 }
+
+// This ends the game when all matches are found, or when the player has maxxed out the number of tries.
+
+if (matchedTiles === colors.length){
+  alert("You've won! Starting new game now.");
+  newBoard();
+}else if(matchedTiles !== colors.length && numTries > 15){
+  alert("You're out of tries!");
+}
+/*var foundAllMatches = true;
+
+for (var i = 0; i <= matchedTiles.lenth; i++){
+  foundAllMatches = foundAllMatches && tiles[i].isMatch;
+}
+
+if (foundAllMatches) {
+    alert("You found them all in " + numTries + " tries");
+}*/
 
 // This flips unmatched cards back over
 
@@ -67,7 +86,25 @@ function startImage(){
 
 // This shuffles the deck
 
-// Array.prototype.shuffleDeck = function(){
+// function shuffleArray(array) {
+//     for (var i = this.length - 1; i > 0; i--) {
+//         var j = Math.floor(Math.random() * (i + 1));
+//         var temp = array[i];
+//         array[i] = array[j];
+//         array[j] = temp;
+//     }
+//     return array;
+// }
+
+Array.prototype.shuffleDeck = function(){
+  for (var i = this.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = this[i];
+    this[i] = this[j];
+    this[j] = temp;
+  }
+};
+//   Array.prototype.shuffleDeck = function(){
 //   var i = this.length, j, temp;
 //   while(--i > 0){
 //     temp = this[j];

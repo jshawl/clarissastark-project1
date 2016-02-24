@@ -39,10 +39,10 @@ div#grid{
 }
 
 div#grid > div{
-	background: teal;
+	background: teal; 
 	border:#bbb 1px solid;
-	width:71px;
-	height:71px;
+	width:70px;
+	height:70px;
 	float:left;
 	margin:10px;
 	padding:20px;
@@ -54,6 +54,9 @@ div#grid > div{
 div#grid > div:hover{
   color: #ccccff;
   background-color: rgb(20, 20, 20);
+  /*-webkit-transform:rotate(180deg);
+  -ms-transform:rotate(180deg);
+  transform:rotate(180deg);*/
 }
 
 button:hover{
@@ -65,8 +68,20 @@ div#decks {
   width: 700px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 }
+
+footer {
+  display: inline-block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  margin-top: 40px;
+}
+
+
+
 /*BUILDING BOARD WITH CSS & HTML*/
 
 /*.grid {
