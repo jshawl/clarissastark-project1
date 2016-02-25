@@ -5,11 +5,32 @@ var memoryValues = [];
 var memoryTileIds = [];
 var numTries = 0;
 var startBtn = document.querySelector("#start");
+var countDown = 100;
 var gameTimer;
 
-// This starts the game when user pushes the big red button
+// This starts the game when users push the big red button
 
-startBtn.addEventListener("click", newBoard);
+$("#start").click(newBoard);
+
+// This starts a timer when users click 'Let's play'
+//
+// startBtn.addEventListener("click", myTimer);
+//
+// function myTimer(){
+//   gameTimer = setInterval(myTimer, 1000);
+//   var interval = setInterval(function() {
+//     document.getElementById("timerDiv").innerHTML = --countDown;
+//     if (countDown <= 0)
+//     {
+//       document.getElementById("timerDiv").innerHTML = "You're outta time! Game over.";
+//       clearInterval(interval);
+//     }
+//   }, 1000);
+// }
+//
+// function myStopFunction() {
+//   clearInterval(gameTimer);
+// }
 
 // This sets up the board
 
@@ -25,16 +46,15 @@ function newBoard(){
     tile.id = "tile_" + i;
     tile.setAttribute("data-color", colors[i]);
     tile.addEventListener("click", function(){
-      memoryFlipTile(this);
+      flipTile(this);
     });
     document.getElementById("grid").appendChild(tile);
   }
-  // gameTimer = setInterval(memoryFlipTile, 100);
 }
 
 // This flips over cards and determines if two cards are a match, and either flips them back over or leaves matched cards face up. It ends the game when all matches are found, or when the player has maxxed out the number of tries.
 
-function memoryFlipTile(tile){
+function flipTile(tile){
   var val = tile.getAttribute("data-color");
   tile.style.backgroundColor = val;
   memoryValues.push(val);
@@ -48,10 +68,10 @@ function memoryFlipTile(tile){
       memoryValues = [];
       memoryTileIds = [];
       if (matchedTiles === colors.length){
-        alert("You've won! Starting new game now.");
+        alert("You've won! Starting a new game now.");
         newBoard();
       }else if(numTries > 12){
-        alert("You're out of tries!");
+        alert("You're out of tries! Hit the 'Let's play!' button to try again.'");
       }
     }
   }
