@@ -9,7 +9,7 @@ body {
 
 #container {
   background: white;
-  width: 700px;
+  width: 500px;
   margin-left: auto;
   margin-right: auto;
   box-shadow: 3px 15px 60px rgba(0, 0, 0, 0.79);
@@ -18,7 +18,7 @@ body {
 
 p {
   text-align: center;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: bold;
   color: #505050;
 }
@@ -32,9 +32,9 @@ button.btn {
   font-size: 13px;
   color: white;
   padding: 10px 30px;
-  margin-bottom: 20px
   text-align: center;
   margin-bottom: 20px;
+  margin-top: 10px;
   font-weight: bold;
   opacity: 1.0;
 }
@@ -71,7 +71,6 @@ div#grid > div:hover{
   color: #ccccff;
   background-color: rgb(20, 20, 20);
 }
-
 
 div#decks {
   width: 150px;
