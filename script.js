@@ -48,14 +48,16 @@ function memoryFlipTile(tile){
       matchedTiles += 2;
       memoryValues = [];
       memoryTileIds = [];
-    }
-  }else if (matchedTiles === colors.length){
-        alert("You've won! Starting new game now.");
-        newBoard();
-      }else if(numTries > 12){
-        alert("You're out of tries! Click 'Let's play!' to try again.");
+      if (matchedTiles === colors.length){
+        alert("You've won! Click 'Let's play!' to play again.");
+        numTries = 0;
+      }else if(gameTimer === 0){
+        alert("You're out of tries!");
+        numTries = 0;
       }
     }
+  }
+}
 
 /*var foundAllMatches = true;
 
