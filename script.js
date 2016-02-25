@@ -40,6 +40,7 @@ function memoryFlipTile(tile){
   memoryValues.push(val);
   memoryTileIds.push(tile.id);
   numTries += 0.5;
+  if (gameTimer == 2000)
   if (memoryValues.length == 2){
     if (isAndIsMatch(memoryValues[0],memoryValues[1]) === false){
       this.setTimeout(flipBack, 700);
@@ -50,7 +51,7 @@ function memoryFlipTile(tile){
       if (matchedTiles === colors.length){
         alert("You've won! Starting new game now.");
         newBoard();
-      }else if(numTries > 15){
+      }else if(numTries > 12){
         alert("You're out of tries!");
       }
     }

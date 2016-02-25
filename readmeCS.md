@@ -36,10 +36,11 @@ I ran into trouble getting the array of colors to be "matched" and worked with J
 
 If a user clicks on the same card twice, that 'counts' as flipping over two cards, and it adds up as a match.
 
-I added a timer that counts up, but can't figure out how to get it to display on the page and how to incorpate the timing into the game ending.
+I added a timer that counts up, but can't figure out how to get it to display on the page and how to incorporate the timing into the game ending.
 
 + At least 5 user stories.
 
+As a user, I can match pairs of tiles and either win the memory game, or lose if I take more than 15 tries.
 As a user, I can start a new game in the middle of a game if I want to jump ship.
 As a game player, I want scoring because I want to see how my concentration ability improves.
 As a person with political opinions, I want to be able to customize the deck to something less polarizing than Bernie Sanders.
