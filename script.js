@@ -11,7 +11,6 @@ var gameTimer;
 
 startBtn.addEventListener("click", newBoard);
 
-
 // This sets up the board
 
 function newBoard(){
@@ -32,7 +31,6 @@ function newBoard(){
   }
   gameTimer = setInterval(memoryFlipTile, 100);
 }
-
 
 // This flips over cards and determines if two cards are a match, and either flips them back over or leaves matched cards face up. It ends the game when all matches are found, or when the player has maxxed out the number of tries.
 

@@ -1,11 +1,10 @@
 body {
-  background: white url("img/flag-bg.jpeg") no-repeat top;
+  background: white url("img/flag-bg.png") no-repeat top;
   border-top: 25px solid #247bbe;
   margin-top: -2px;
   color: rgb(80, 80, 80);
   font-family: 'Helvetica', sans-serif;
 }
-
 
 #container {
   background: white;
@@ -48,16 +47,15 @@ button:hover{
 div#grid{
 	background:#fff;
 	margin: 0px auto;
-  width: 540px;
-  opacity: 1.0;
+  width: 510px;
 }
 
 
 div#grid > div{
 	background: #247bbe url("img/bernCardBack.png") no-repeat center;
 	border:#bbb 1px solid;
-	width:70px;
-	height:70px;
+	width:63px;
+	height:63px;
 	float:left;
 	margin:10px;
 	padding:20px;
