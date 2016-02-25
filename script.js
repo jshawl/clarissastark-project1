@@ -29,7 +29,7 @@ function newBoard(){
     });
     document.getElementById("grid").appendChild(tile);
   }
-  gameTimer = setInterval(memoryFlipTile, 100);
+  // gameTimer = setInterval(memoryFlipTile, 100);
 }
 
 // This flips over cards and determines if two cards are a match, and either flips them back over or leaves matched cards face up. It ends the game when all matches are found, or when the player has maxxed out the number of tries.
@@ -40,7 +40,6 @@ function memoryFlipTile(tile){
   memoryValues.push(val);
   memoryTileIds.push(tile.id);
   numTries += 0.5;
-  if (gameTimer == 2000)
   if (memoryValues.length == 2){
     if (isAndIsMatch(memoryValues[0],memoryValues[1]) === false){
       this.setTimeout(flipBack, 700);
