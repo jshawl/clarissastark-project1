@@ -20,18 +20,17 @@ To start off with my concentration game, I listed the bare-minimum features for 
     + Game ends when all pairs are revealed, and asks if you'd like to play again.
 
   Gold:
-    + User chooses different decks
-    + User is timed and scoreds
+    + User chooses from different themed decks
+    + User is timed and scored
+    + The timer is visible on the page
     + The score incorporates speed
     + Increase difficulty by creating a bigger board
 
-From there, I pseudocoded in JS to build the bronze-level game
+From there, I pseudocoded in JS to build the bronze-level game.
 
 I started off building a card grid with divs, and went down a rabbit hole of making the the cards flip over with CSS – then started over, setting the design elements for the grid in CSS and using JS to build the grid.
 
-I also started off using JQuery, but as mentioned above, recoded in just JS.
-
-I ran into trouble getting the array of colors to be matched 
+I ran into trouble getting the array of colors to be "matched" and worked with Jessie to use the color-
 
 + Unsolved problems
 

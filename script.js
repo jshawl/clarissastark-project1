@@ -5,12 +5,12 @@ var memoryValues = [];
 var memoryTileIds = [];
 var numTries = 0;
 var startBtn = document.querySelector("#start");
+var gameTimer;
 
+// This starts the game when user pushes the big red button
 
+startBtn.addEventListener("click", newBoard);
 
-// deck.addEventListener("click", function(){
-//   this.setAttribute("data-")
-// })
 
 // This sets up the board
 
@@ -30,9 +30,11 @@ function newBoard(){
     });
     document.getElementById("grid").appendChild(tile);
   }
+  gameTimer = setInterval(memoryFlipTile, 100);
 }
 
-// This flips over cards and determines if two cards are a match, and either flips them back over or leaves matched cards face up
+
+// This flips over cards and determines if two cards are a match, and either flips them back over or leaves matched cards face up. It ends the game when all matches are found, or when the player has maxxed out the number of tries.
 
 function memoryFlipTile(tile){
   var val = tile.getAttribute("data-color");
@@ -57,10 +59,6 @@ function memoryFlipTile(tile){
   }
 }
 
-
-
-// This ends the game when all matches are found, or when the player has maxxed out the number of tries.
-console.log(matchedTiles);
 
 /*var foundAllMatches = true;
 
@@ -89,13 +87,6 @@ function isAndIsMatch(a,b){
     return !!a && !!b && a === b;
     }
 
-
-// This puts images into the card deck array
-
-function startImage(){
-    document.getElementById("pic").src = imgArray[0].src;
-}
-
 // This randomizes the colors on the back of the cards in the grid
 
 Array.prototype.shuffleDeck = function(){
@@ -107,8 +98,7 @@ Array.prototype.shuffleDeck = function(){
   }
 };
 
-
-window.onload = newBoard;
+// window.onload = newBoard;
 
 // $('document').ready(function(){
 //   var colors = ["red", "blue", "orange", "green", "purple", "yellow"];
