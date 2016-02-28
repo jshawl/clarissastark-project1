@@ -14,7 +14,7 @@ startBtn.addEventListener("click", newBoard);
 // This sets up the board
 
 function newBoard(){
-  var parentDiv = document.getElementById("grid");
+  var parentDiv = document.getElementById("grid"); // consider moving this up to line 7
   while (parentDiv.firstChild){
     parentDiv.removeChild(parentDiv.firstChild);
   }
@@ -25,11 +25,14 @@ function newBoard(){
     tile.id = "tile_" + i;
     tile.setAttribute("data-color", colors[i]);
     tile.addEventListener("click", function(){
-      memoryFlipTile(this);
+      memoryFlipTile(this); // nice
     });
     document.getElementById("grid").appendChild(tile);
   }
-  // gameTimer = setInterval(memoryFlipTile, 100);
+  gameTimer = setTimeout(function(){
+    alert("Time's up! it's been thirty seconds!") ;
+    newBoard();
+  }, 30000); // everytime new board is called, the user will have 30 seconds to complete the game
 }
 
 
@@ -42,14 +45,16 @@ function memoryFlipTile(tile){
   memoryTileIds.push(tile.id);
   numTries += 0.5;
   if (memoryValues.length == 2){
-    if (isAndIsMatch(memoryValues[0],memoryValues[1]) === false){
-      this.setTimeout(flipBack, 700);
-    }else if (isAndIsMatch(memoryValues[0],memoryValues[1]) === true){
+    if (!isAndIsMatch(memoryValues[0],memoryValues[1])){
+      setTimeout(flipBack, 700);
+      // this was the window, so not needed
+    }else if (isAndIsMatch(memoryValues[0],memoryValues[1])){
       matchedTiles += 2;
       memoryValues = [];
       memoryTileIds = [];
       if (matchedTiles === colors.length){
         alert("You've won! Click 'Let's play!' to play again.");
+	clearInterval(gameTimer)
         numTries = 0;
       }else if(gameTimer === 0){
         alert("You're out of tries!");
@@ -60,7 +65,7 @@ function memoryFlipTile(tile){
 }
 
 /*var foundAllMatches = true;
-
+remove unused code
 for (var i = 0; i <= matchedTiles.lenth; i++){
   foundAllMatches = foundAllMatches && tiles[i].isMatch;
 }
@@ -83,6 +88,7 @@ function flipBack(){
 // This deteremines if two items are a match, excluding 'undefined', "" & null
 
 function isAndIsMatch(a,b){
+  // awesome! :)
     return !!a && !!b && a === b;
     }
 
@@ -132,6 +138,7 @@ Array.prototype.shuffleDeck = function(){
 // $("#card2").css("background-image", "url(" + Math.floor(Math.random()*6) + ".gif)");
 
 // $("#card3").css("background-image", "url(" + Math.floor(Math.random()*6) + ".gif)");
+// recommend removing unused code and keeping the attempts in the commit history and/or branches
 
 
 // 2nd attempt
@@ -213,3 +220,5 @@ if click event on cell value = click event on second cell value, var score incre
 
 
 */
+
+// excellent job!
